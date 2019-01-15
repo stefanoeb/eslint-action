@@ -5,6 +5,8 @@ LABEL "com.github.actions.description"="Run ESLint on all javascript files in th
 LABEL "com.github.actions.icon"="circle"
 LABEL "com.github.actions.color"="3523ca"
 
-COPY entrypoint.sh /entrypoint.sh
+COPY . .
+RUN pwd
+RUN ls -la
 RUN ./node_modules/.bin/eslint .
 # ENTRYPOINT ["/entrypoint.sh"]
