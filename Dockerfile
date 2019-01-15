@@ -7,4 +7,4 @@ LABEL "com.github.actions.color"="3523ca"
 
 RUN yarn install --ignore-scripts --production=false
 
-CMD ["./node_modules/.bin/eslint", "."]
+CMD ["/github/workspace/node_modules/.bin/eslint", "/github/workspace/"]
