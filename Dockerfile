@@ -5,6 +5,6 @@ LABEL "com.github.actions.description"="Run ESLint on all javascript files in th
 LABEL "com.github.actions.icon"="circle"
 LABEL "com.github.actions.color"="3523ca"
 
-RUN yarn global add eslint
+RUN yarn install --ignore-scripts --production=false
 
-CMD ["eslint", "."]
+CMD ["./node_modules/.bin/eslint", "."]
