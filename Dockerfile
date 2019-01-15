@@ -6,5 +6,5 @@ LABEL "com.github.actions.icon"="circle"
 LABEL "com.github.actions.color"="3523ca"
 
 COPY entrypoint.sh /entrypoint.sh
-
-ENTRYPOINT ["/entrypoint.sh"]
+RUN ./node_modules/.bin/eslint .
+# ENTRYPOINT ["/entrypoint.sh"]
