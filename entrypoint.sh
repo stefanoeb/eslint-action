@@ -1,4 +1,4 @@
 #!/bin/sh
 set -e
 
-./node_modules/.bin/eslint .
+yarn --production=false && ./node_modules/.bin/eslint .
