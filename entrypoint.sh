@@ -15,7 +15,7 @@ else
     fi
 fi
 
-if [ -z "$@" ]; then
+if [ -z "$1" ]; then
     glob="."
 else 
     glob="$@"
