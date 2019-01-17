@@ -7,4 +7,4 @@ else
     glob="$@"
 fi
 
-sh -c "yarn --production=false && ./node_modules/.bin/eslint $glob"
+sh -c "yarn --non-interactive --silent --ignore-scripts --production=false && ./node_modules/.bin/eslint $glob"
