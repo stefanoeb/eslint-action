@@ -11,7 +11,11 @@ else
     if [ -f yarn.lock ]; then
         setup="yarn --non-interactive --silent --ignore-scripts --production=false &&"
     else
-        setup="NODE_ENV=development npm install &&"
+        if [ -f package-lock.json ]; then
+            setup="NODE_ENV=development npm ci --ignore-scripts &&"
+        else
+            setup="NODE_ENV=development npm install --no-package-lock --ignore-scripts &&"
+        fi
     fi
 fi
 
