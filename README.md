@@ -10,6 +10,8 @@ More info [on the ESLint getting started guide](https://eslint.org/docs/user-gui
 
 ## Usage
 
+### main.workflow
+
 Add any of the examples below to your workflow file in `.github/main.workflow`
 
 This is the simplest example to get it running:
@@ -38,6 +40,31 @@ action "ESLint" {
 ```
 
 If there is no previous step installing the necessary modules, this action will execute a `yarn install` or `npm install` automatically.
+
+### Alternative: lint.yml
+
+```
+name: Lint
+
+on: pull_request
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+      - run: npm ci --no-audit --prefer-offline
+      - uses: stefanoeb/eslint-action@1.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          args: './src/**/*.{js,ts,tsx} --max-warnings 0'
+```
 
 ## License
 
