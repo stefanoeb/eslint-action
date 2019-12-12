@@ -12,36 +12,25 @@ More info [on the ESLint getting started guide](https://eslint.org/docs/user-gui
 
 ### main.workflow
 
-Add any of the examples below to your workflow file in `.github/main.workflow`
+Add any of the examples below to your workflow file in `.github/workflow/lint.yml`
 
 This is the simplest example to get it running:
 ```
-workflow "New workflow" {
-  on = "push"
-  resolves = ["ESLint"]
-}
+name: Lint
 
-action "ESLint" {
-  uses = "stefanoeb/eslint-action@master"
-}
+on: pull_request
+
+jobs:
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: stefanoeb/eslint-action@1.0.0
+        with:
+          args: './src/**/*.{js,ts,tsx}'
 ```
 
 By default it will run ESLint through all the files in the project. But you can also specify a glob of files on the `args`, just like ESLint:
-```
-workflow "New workflow" {
-  on = "push"
-  resolves = ["ESLint"]
-}
-
-action "ESLint" {
-  uses = "stefanoeb/eslint-action@master"
-  args = "index.js src/**.js"
-}
-```
-
-If there is no previous step installing the necessary modules, this action will execute a `yarn install` or `npm install` automatically.
-
-### Alternative: lint.yml
 
 ```
 name: Lint
@@ -53,18 +42,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-        with:
-          fetch-depth: 1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - run: npm ci --no-audit --prefer-offline
       - uses: stefanoeb/eslint-action@1.0.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          args: './src/**/*.{js,ts,tsx} --max-warnings 0'
+          args: './src/**/*.{js,ts,tsx}'
 ```
+
+If there is no previous step installing the necessary modules, this action will execute a `yarn install` or `npm install` automatically.
 
 ## License
 
