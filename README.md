@@ -26,8 +26,6 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - uses: stefanoeb/eslint-action@1.0.0
-        with:
-          args: './src/**/*.{js,ts,tsx}'
 ```
 
 By default it will run ESLint through all the files in the project. But you can also specify a glob of files on the `args`, just like ESLint:
