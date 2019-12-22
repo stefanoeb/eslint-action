@@ -1,4 +1,6 @@
 name: Run ESLint
 description: Run ESLint on JavaScript files
-icon: circle
-color: purple
+author: stefanoeb
+branding: 
+  icon: circle
+  color: purple
