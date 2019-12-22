@@ -15,7 +15,7 @@ More info [on the ESLint getting started guide](https://eslint.org/docs/user-gui
 Add or create a file named `.github/workflow/lint.yml` and copy over one of the examples below to your new workflow file
 
 This is the simplest example to get it running:
-```hcl
+```yml
 name: Lint
 
 on: [push]
@@ -31,7 +31,7 @@ jobs:
 
 By default it will run ESLint through all the files in the project. But you can also specify a glob of files to lint using the `with:` argument on your YAML file. The example below shows ESLint running only on the files under the `src/` folder:
 
-```hcl
+```yml
 name: Lint
 
 on: [push]
