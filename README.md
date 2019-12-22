@@ -12,7 +12,7 @@ More info [on the ESLint getting started guide](https://eslint.org/docs/user-gui
 
 ### main.workflow
 
-Add or create a file named `.github/workflow/lint.yml` and copy over one of the examples below to your new workflow file
+Add to your existing `main.workflow` file or create a new file named `.github/workflow/lint.yml` and copy over one of the examples below to your new workflow file
 
 This is the simplest example to get it running:
 ```yml
