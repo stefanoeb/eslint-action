@@ -25,8 +25,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      name: ESLint
-        - uses: stefanoeb/eslint-action@1.0.2
+      - uses: stefanoeb/eslint-action@1.0.2
 ```
 
 By default it will run ESLint through all the files in the project. But you can also specify a glob of files to lint using the `with:` argument on your YAML file. The example below shows ESLint running only on the files under the `src/` folder:
@@ -41,8 +40,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      name: ESLint
-        - uses: stefanoeb/eslint-action@1.0.2
+      - uses: stefanoeb/eslint-action@1.0.2
         with:
           files: src/
 ```
