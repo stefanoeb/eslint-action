@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Exit if any subcommand fails
-set -e 
+set -e
 
 # Setup node modules if needed
 if [ -e node_modules/.bin/eslint ]; then
@@ -21,9 +21,9 @@ fi
 
 if [ -z "$1" ]; then
     glob="."
-else 
+else
     glob="$@"
 fi
 
 echo "## Running ESLint"
-sh -c "$setup ./node_modules/.bin/eslint $glob"
+sh -c "$setup ./node_modules/.bin/eslint --ext=ts,tsx $glob"
