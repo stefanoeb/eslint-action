@@ -1,5 +1,21 @@
-# GitHub ESLint runner
+# ⚠️⚠️⚠️ You don't need this action ⚠️⚠️⚠️
 
+Github Actions have everything that you need to run your eslint out of the box now, to do that simply use the `run` commands like so:
+```yml
+name: CI
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Install modules
+      run: yarn
+    - name: Run ESLint
+      run: eslint . --ext .js,.jsx,.ts,.tsx
+```
+
+--- 
 This action executes ESLint linter on specified javascript files without any previous action/build step or Docker required.
 
 ## Prerequisites
